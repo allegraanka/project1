@@ -26,8 +26,63 @@
 
 <body>
 
+    <!-- Main Content -->
+    <div class="container" id="content-container">
 
-    
+        <!-- Title  -->
+        <div class="row" id="title-row">
+            <h1>Philly Eats!!!</h1>
+        </div>
+
+        <!-- Search Columns -->
+        <div class="row" id="search-row">
+            <div class="col-6" id="recipe-column">
+                <div class="form-group">
+                    <label for="recipe-input">Recipe:</label>
+                    <input class="form-control" class="user-search" id="recipe-input"
+                        placeholder="Example: Onions, Greek, etc." type="text">
+                    <button class="btn btn-light float-right" id="submit-btn">Submit</button>
+                </div>
+            </div>
+            <div class="col-6" id="restaurant-column">
+                <div class="form-group">
+                    <label for="restaurant-input">Restaurant:</label>
+                    <input class="form-control" id="restaurant-input" class="user-search"
+                        placeholder="Example: Italian, Burgers, etc." type="text">
+                    <button class="btn btn-light float-right" id="submit-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <div class="row">
+            <footer class="footer">
+                <small class="text-muted">
+                    <!-- Copyright Text -->
+                    <div class="row" id="copyright-row">
+                        <p id="copyright-text">
+                            Copyright © The Best Friends Gang, 2019 - "PhillyEats Background
+                            Music"
+                            is
+                            an
+                            Original Composition
+                            by "Los Personas en la Clase"
+                        </p>
+                    </div>
+                    <!-- Music -->
+                    <div class="row" id="audio-row">
+                        <audio id="bg-music" controls>
+                            <source src="" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </small>
+            </footer>
+        </div>
+
+
+
+    </div>
 
 
     <!-- Firebase -->
