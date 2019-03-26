@@ -31,24 +31,42 @@
 
         <!-- Title  -->
         <div class="row" id="title-row">
-            <h1>Philly Eats!!!</h1>
+            <h1>Get Lit, Go Out!!!</h1>
         </div>
 
         <!-- Instructions -->
         <div class="row" id="instructions-row">
-            <h2 id="instructions-text">Hi there! Welcome to PhillyEats, Philadelphia's only website where this sentence
+            <h3 id="instructions-text">Hi there! Welcome to GetLitGoOut, Philadelphia's only website where this sentence
                 exists! Recipes or resturuants that's our thing! Want something special? Search it! Want something
-                specific? Search it! The world is your oyster! Also, Philadelphia is the world!</h2>
+                specific? Search it! The world is your oyster! Also, Philadelphia is the world!</h3>
+        </div>
+
+
+        <!-- Search History -->
+        <div class="card mb-4" id="search-history-card">
+            <div class="card-header">Search History</div>
+            <div class="card-body">
+                <table class="table table-sm table-hover" id="search-history-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Resturaunt/Cocktail Name</th>
+                            <th scope="col">Search Term</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
 
         <!-- Search Columns -->
         <div class="row" id="search-row">
-            <div class="col-6" id="recipe-column">
+            <div class="col-6" id="cocktail-column">
                 <div class="form-group">
-                    <label for="recipe-input">Recipe:</label>
-                    <input class="form-control" class="user-search" id="recipe-input"
-                        placeholder="Example: Onions, Greek, etc." type="text">
+                    <label for="cocktail-input">Cocktail:</label>
+                    <input class="form-control" class="user-search" id="ingredient-input"
+                        placeholder="Ingredient: Gin, Vodka, etc." type="text">
                     <button class="btn btn-light float-right" id="recipe-submit-btn">Submit</button>
                 </div>
             </div>
@@ -62,15 +80,18 @@
             </div>
         </div>
 
-        <!---------------------------------- SURVEY SECTION ------------------------------------>
+        <!---------------------------------- RESULTS SECTION ----------------------------------->
+
+
+        <!-- -------------------------------- SURVEY SECTION ------------------------------------>
 
         <!-- Survey Header/Button -->
-        <div class="row" id="survey-header-row">
+        <!-- <div class="row" id="survey-header-row">
             <h3>Want a more personalized search? Take a brief survey!</h3>
         </div>
         <div class="row" id="survey-btn-row">
             <button class="btn btn-light float-right" id="survey-btn">Start Survey</button>
-        </div>
+        </div> -->
 
         <!-- Survey Questions -->
 

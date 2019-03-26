@@ -15,9 +15,9 @@
 var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
 var userSearch;
 
-function getData(e) {
+function getResturaunt(e) {
     e.preventDefault();
-    userSearch = $(".user-search").val().trim();
+    userSearch = $("#resturaunt-input").val().trim();
     $.ajax({
         url: `${baseURL}&q=${userSearch}`,
         method: "GET",
@@ -31,12 +31,46 @@ function getData(e) {
 }
 
 // Rest On Click
-$("#resturaunt-submit-btn").on("click", function() {
-    getData;
+$("#resturaunt-submit-btn").on("click", function () {
+    getResturaunt();
     console.log("rest-click")
 });
 
 // Rec On Click
-$("#recipe-submit-btn").on("click", function() {
+$("#recipe-submit-btn").on("click", function () {
+    
+    var userIngredient;
+
+    // Prevent Default
+    event.preventDefault();
+
+    // HTML Elements
+    userIngredient = $("#ingredient-input").val().trim();
+
+    // AJAX URL
+    var cocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userIngredient;
+
+    // AJAX Call
+    $.ajax({
+        url: cocktailURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+    });
     console.log("rec-click")
 });
+
+// ----------------- FIREBASE ------------------ //
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDrsjCuMzZ09mp8Y-CE8O6I5Tt16_IVRzI",
+    authDomain: "phillyeats-b7ad1.firebaseapp.com",
+    databaseURL: "https://phillyeats-b7ad1.firebaseio.com",
+    projectId: "phillyeats-b7ad1",
+    storageBucket: "phillyeats-b7ad1.appspot.com",
+    messagingSenderId: "1089487018118"
+};
+firebase.initializeApp(config);
+
+var database = firebase.database();
