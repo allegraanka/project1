@@ -30,4 +30,13 @@ function getData(e) {
     });
 }
 
-$("#submit-btn").on("click", getData);
+// Rest On Click
+$("#resturaunt-submit-btn").on("click", function() {
+    getData;
+    console.log("rest-click")
+});
+
+// Rec On Click
+$("#recipe-submit-btn").on("click", function() {
+    console.log("rec-click")
+});
