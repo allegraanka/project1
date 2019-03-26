@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Philly Eats!</title>
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <div class="container" id="content-container">
+
+        <!-- Title  -->
+        <div class="row" id="title-row">
+            <h1>Get Lit, Go Out!!!</h1>
+        </div>
+
+        <!-- Instructions -->
+        <div class="row" id="instructions-row">
+            <h3 id="instructions-text">Hi there! Welcome to GetLitGoOut, Philadelphia's only website where this sentence
+                exists! Recipes or resturuants that's our thing! Want something special? Search it! Want something
+                specific? Search it! The world is your oyster! Also, Philadelphia is the world!</h3>
+        </div>
+
+
+        <!-- Search History -->
+        <div class="card mb-4" id="search-history-card">
+            <div class="card-header">Search History</div>
+            <div class="card-body">
+                <table class="table table-sm table-hover" id="search-history-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Resturaunt/Cocktail Name</th>
+                            <th scope="col">Search Term</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Search Columns -->
+        <div class="row" id="search-row">
+            <div class="col-6" id="cocktail-column">
+                <div class="form-group">
+                    <label for="cocktail-input">Cocktail:</label>
+                    <input class="form-control" class="user-search" id="ingredient-input"
+                        placeholder="Ingredient: Gin, Vodka, etc." type="text">
+                    <button class="btn btn-light float-right" id="recipe-submit-btn">Submit</button>
+                </div>
+            </div>
+            <div class="col-6" id="restaurant-column">
+                <div class="form-group">
+                    <label for="restaurant-input">Restaurant:</label>
+                    <input class="form-control" id="restaurant-input" class="user-search"
+                        placeholder="Example: Italian, Burgers, etc." type="text">
+                    <button class="btn btn-light float-right" id="resturaunt-submit-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!---------------------------------- RESULTS SECTION ----------------------------------->
+
+
+        <!-- -------------------------------- SURVEY SECTION ------------------------------------>
+
+        <!-- Survey Header/Button -->
+        <!-- <div class="row" id="survey-header-row">
+            <h3>Want a more personalized search? Take a brief survey!</h3>
+        </div>
+        <div class="row" id="survey-btn-row">
+            <button class="btn btn-light float-right" id="survey-btn">Start Survey</button>
+        </div> -->
+
+        <!-- Survey Questions -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Footer -->
+        <div class="row">
+            <footer class="footer">
+                <small class="text-muted">
+                    <!-- Copyright Text -->
+                    <div class="row" id="copyright-row">
+                        <p id="copyright-text">
+                            Copyright © The Best Friends Gang, 2019 - "PhillyEats Background
+                            Music"
+                            is
+                            an
+                            Original Composition
+                            by "Los Personas en la Clase"
+                        </p>
+                    </div>
+                    <!-- Music if we want it
+                    <div class="row" id="audio-row">
+                        <audio id="bg-music" controls>
+                            <source src="" type="audio/mpeg">
+                        </audio>
+                    </div> -->
+                </small>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <!-- App Link -->
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
