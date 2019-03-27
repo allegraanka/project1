@@ -55,31 +55,33 @@ $("#recipe-submit-btn").on("click", function () {
         url: cocktailURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response.drinks[0].idDrink);
 
-        // ---------- Add new DOM element on the fly for the results
+        // ---------- Add new DOM element on the fly for the results ------------- //
 
-        // Href using the drinks ID to go to it's specific page
-        var cockRef = "https://www.thecocktaildb.com/drink/" + response.drinks[0].idDrink;
+        // Create a for loop to display 10 results
+        for (i = 0; i < 100; i++) {
 
-        // Make list item
-        var newCocktail = $("<li>");
+            // Href using the drinks ID to go to it's specific page
+            var cockRef = "https://www.thecocktaildb.com/drink/" + response.drinks[i].idDrink;
 
-        // Create an a tag
-        var cocktailResult = $("<a>");
+            // Make list item
+            var newCocktail = $("<li>");
 
-        // Assign text to a tag
-        cocktailResult.text(response.drinks[0].strDrink);
+            // Create an a tag
+            var cocktailResult = $("<a>");
 
-        // Assign the href
-        cocktailResult.attr("href", cockRef);
+            // Assign text to a tag
+            cocktailResult.text(response.drinks[i].strDrink);
 
-        // Append a tag as child of list item
-        newCocktail.append(cocktailResult);
+            // Assign the href
+            cocktailResult.attr("href", cockRef);
 
-        // Append new cocktail to HTML
-        $("#cocktail-results").append(newCocktail);
+            // Append a tag as child of list item
+            newCocktail.append(cocktailResult);
 
+            // Append new cocktail to HTML
+            $("#cocktail-results").append(newCocktail);
+        }
     });
 });
 
