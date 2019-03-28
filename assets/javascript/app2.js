@@ -79,7 +79,7 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
-    $(".btn btn-light float-right").on("click", function (event) {
+    $(".btn-primary").on("click", function (event) {
         event.preventDefault();
 
         userIngredient = $(".user-search").val().trim();

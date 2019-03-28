@@ -66,15 +66,14 @@ $(document).ready(function () {
 
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyC-m0mAh0tU9OlxcmLNaj9NeU-GIo6zYr4",
-        authDomain: "classproject1-6b207.firebaseapp.com",
-        databaseURL: "https://classproject1-6b207.firebaseio.com",
-        projectId: "classproject1-6b207",
-        storageBucket: "classproject1-6b207.appspot.com",
-        messagingSenderId: "733605793926"
+        apiKey: "AIzaSyB0UzYU_vyNF7nEbN2fZINuhAryTTxL9NU",
+        authDomain: "project-1-6a939.firebaseapp.com",
+        databaseURL: "https://project-1-6a939.firebaseio.com",
+        projectId: "project-1-6a939",
+        storageBucket: "project-1-6a939.appspot.com",
+        messagingSenderId: "686301834017"
     };
     firebase.initializeApp(config);
-
     //create variable to hold database
 
     var database = firebase.database();
