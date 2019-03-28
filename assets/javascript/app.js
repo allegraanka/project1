@@ -44,6 +44,9 @@ $("#recipe-submit-btn").on("click", function () {
     // Prevent Default
     event.preventDefault();
 
+    // CLEAR! THAT! DOM!
+    $("#cocktail-results").text("");
+
     // HTML Elements
     userIngredient = $("#ingredient-input").val().trim();
 

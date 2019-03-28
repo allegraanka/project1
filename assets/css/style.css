@@ -4,7 +4,6 @@ body {
     font-family: 'Gloria Hallelujah', cursive;
 }
 
-
 /* Rows */
 
 #title-row {
@@ -15,6 +14,11 @@ body {
     margin: 10px;
 }
 
+/* Columns */
+
+#cocktail-column, #resturaunt-column {
+    margin-bottom: 15px;
+}
 
 /* Headers */
 
