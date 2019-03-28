@@ -15,9 +15,9 @@
 var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
 var userSearch;
 
-function getResturaunt(e) {
+function getData(e) {
     e.preventDefault();
-    userSearch = $("#resturaunt-input").val().trim();
+    userSearch = $("#userSearch").val().trim();
     $.ajax({
         url: `${baseURL}&q=${userSearch}`,
         method: "GET",
@@ -26,9 +26,54 @@ function getResturaunt(e) {
             "user-key": "a78c76989a0d84745c0c782d502cd107"
         }
     }).then(function (response) {
-        console.log(response)
+
+        var restaurants = response.restaurants;
+
+        restaurants.forEach(function (restaurant) {
+            console.log(restaurant);
+            var restaurantContainer = $("<div>");
+            restaurantContainer.addClass("restaurant");
+
+            var restaurantName = restaurant.restaurant.name;
+            var restaurantCuisine = restaurant.restaurant.cuisines;
+            var restaurantAddress = restaurant.restaurant.location.address;
+            var restaurantNeighborhood = restaurant.restaurant.location.locality;
+            var restaurantMenu = restaurant.restaurant.menu_url;
+
+            var nameHolder = $("<p>").text(`Name: ${restaurantName}`);
+            var cuisineHolder = $("<p>").text(`Cuisine: ${restaurantCuisine}`);
+            var addressHolder = $("<p>").text(`Address: ${restaurantAddress}`);
+            var neighborhoodHolder = $("<p>").text(`Neighborhood: ${restaurantNeighborhood}`);
+            var menuHolder = $("<p>").text(`Menu: ${restaurantMenu}`);
+
+            restaurantContainer.append(nameHolder);
+            restaurantContainer.append(cuisineHolder);
+            restaurantContainer.append(addressHolder);
+            restaurantContainer.append(neighborhoodHolder);
+            restaurantContainer.append(menuHolder);
+
+            $("#result").prepend(restaurantContainer);
+        });
+
+        var restaurantName = restaurant.name;
+        console.log(`Restaurant: ${restaurantName}`);
+
+        var restaurantCuisine = response.restaurants[0].restaurant.cuisines;
+        console.log(`Cuisine: ${restaurantCuisine}`);
+
+        var restaurantAddress = response.restaurants[0].restaurant.location.address;
+        console.log(`Address: ${restaurantAddress}`);
+
+        var restaurantNeighborhood = response.restaurants[0].restaurant.location.locality;
+        console.log(`Neighborhood: ${restaurantNeighborhood}`);
+
+        var restaurantMenu = response.restaurants[0].restaurant.menu_url;
+        console.log(`Menu: ${restaurantMenu}`);
     });
 }
+
+$("#submitBtn").on("click", getData);
+// -------------------------------------------------------------* end restaurant api ajax call
 
 // Rest On Click
 $("#resturaunt-submit-btn").on("click", function () {
