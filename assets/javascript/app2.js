@@ -39,7 +39,7 @@ $(document).ready(function () {
     });
 
     // Rec On Click
-    $("#recipe-submit-btn").on("click", function () {
+    $("#btn-primary").on("click", function () {
 
         var userIngredient;
 
