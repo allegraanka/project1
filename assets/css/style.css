@@ -1,0 +1,27 @@
+/* General Text */
+
+body {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+
+/* Rows */
+
+#title-row {
+    justify-content: center;
+}
+
+#instructions-row {
+    margin: 10px;
+}
+
+
+/* Headers */
+
+h1, h2 {
+    font-family: 'Righteous', cursive;
+}
+
+h3 {
+    font-family: 'Gloria Hallelujah', cursive;
+}
