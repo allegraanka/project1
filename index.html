@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Philly Eats!</title>
+    <title>GetLitGoOut</title>
 
     <!-- CSS Reset -->
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -22,6 +22,10 @@
     <!-- CSS Style -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Gloria+Hallelujah|Righteous" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -31,20 +35,23 @@
 
         <!-- Title  -->
         <div class="row" id="title-row">
-            <h1>Get Lit, Go Out!!!</h1>
+            <h1>Get-Lit-Adelphia!!!</h1>
+            <h2>Philly's One-Stop-Shop for Searching Drinks and Finding Eats</h2>
         </div>
 
         <!-- Instructions -->
         <div class="row" id="instructions-row">
-            <h3 id="instructions-text">Hi there! Welcome to GetLitGoOut, Philadelphia's only website where this sentence
-                exists! Recipes or resturuants that's our thing! Want something special? Search it! Want something
-                specific? Search it! The world is your oyster! Also, Philadelphia is the world!</h3>
+            <h3 id="instructions-text">Hi there! Welcome to Get-Lit-Adelphia - the app dedicated to helping you get lit!
+                Tired of always having to choose between looking up cool new Philly resturaunts and searching
+                cocktail recipies by one specific ingredient?!? No longer!!! Search a place, find drinks, the
+                possibilities are practically infinite! What are you waiting for, try it out! The world is your
+                oyster! Also, Philadelphia is the world!</h3>
         </div>
 
 
         <!-- Search History -->
         <div class="card mb-4" id="search-history-card">
-            <div class="card-header">Search History</div>
+            <div class="card-header">Search Board</div>
             <div class="card-body">
                 <table class="table table-sm table-hover" id="search-history-table">
                     <thead>
@@ -81,6 +88,23 @@
         </div>
 
         <!---------------------------------- RESULTS SECTION ----------------------------------->
+        <div class="card mb-4" id="cocktail-results-card">
+            <div class="card-header">Cocktail results</div>
+            <div class="card-body">
+                <ul id="cocktail-results">
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" id="resturaunt-results-card">
+            <div class="card-header">Resturaunt results</div>
+            <div class="card-body">
+                <ul id="cocktail-results">
+                    <li></li>
+                </ul>
+            </div>
+        </div>
 
 
         <!-- -------------------------------- SURVEY SECTION ------------------------------------>
@@ -148,7 +172,6 @@
             </footer>
         </div>
     </div>
-
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>

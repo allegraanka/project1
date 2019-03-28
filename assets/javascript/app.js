@@ -38,7 +38,7 @@ $("#resturaunt-submit-btn").on("click", function () {
 
 // Rec On Click
 $("#recipe-submit-btn").on("click", function () {
-    
+
     var userIngredient;
 
     // Prevent Default
@@ -55,9 +55,34 @@ $("#recipe-submit-btn").on("click", function () {
         url: cocktailURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
+
+        // ---------- Add new DOM element on the fly for the results ------------- //
+
+        // Create a for loop to display 10 results
+        for (i = 0; i < 100; i++) {
+
+            // Href using the drinks ID to go to it's specific page
+            var cockRef = "https://www.thecocktaildb.com/drink/" + response.drinks[i].idDrink;
+
+            // Make list item
+            var newCocktail = $("<li>");
+
+            // Create an a tag
+            var cocktailResult = $("<a>");
+
+            // Assign text to a tag
+            cocktailResult.text(response.drinks[i].strDrink);
+
+            // Assign the href
+            cocktailResult.attr("href", cockRef);
+
+            // Append a tag as child of list item
+            newCocktail.append(cocktailResult);
+
+            // Append new cocktail to HTML
+            $("#cocktail-results").append(newCocktail);
+        }
     });
-    console.log("rec-click")
 });
 
 // ----------------- FIREBASE ------------------ //
