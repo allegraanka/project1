@@ -9,11 +9,58 @@
 // 7) Display list of places with their various criteria 
 // 8) When a user clicks a resturaunt take them to the place's website
 
+$(document).ready(function () {
 
-// From Allegra's trials
 
-var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
-var userSearch;
+
+    // Rec On Click
+    $("#recipe-submit-btn").on("click", function () {
+
+        var userIngredient;
+
+        // Prevent Default
+        event.preventDefault();
+
+        // HTML Elements
+        userIngredient = $("#ingredient-input").val().trim();
+
+        // AJAX URL
+        var cocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userIngredient;
+
+        // AJAX Call
+        $.ajax({
+            url: cocktailURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+        });
+        console.log("rec-click")
+    });
+
+    // ----------------- FIREBASE ------------------ //
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB0UzYU_vyNF7nEbN2fZINuhAryTTxL9NU",
+        authDomain: "project-1-6a939.firebaseapp.com",
+        databaseURL: "https://project-1-6a939.firebaseio.com",
+        projectId: "project-1-6a939",
+        storageBucket: "project-1-6a939.appspot.com",
+        messagingSenderId: "686301834017"
+    };
+    firebase.initializeApp(config);
+    //create variable to hold database
+
+    var database = firebase.database();
+
+    $(".btn btn-light float-right").on("click", function (event) {
+        event.preventDefault();
+
+        userIngredient = $(".user-search").val().trim();
+
+        var cocktails = {
+
+            userIngredient: userIngredient,
 
 function getData(e) {
     e.preventDefault();
@@ -69,7 +116,15 @@ function getData(e) {
 
         var restaurantMenu = response.restaurants[0].restaurant.menu_url;
         console.log(`Menu: ${restaurantMenu}`);
+        }
+
+        database.ref().push(cocktails)
+
+
+
     });
+});
+=======
 }
 
 $("#submitBtn").on("click", getData);
@@ -129,18 +184,3 @@ $("#recipe-submit-btn").on("click", function () {
         }
     });
 });
-
-// ----------------- FIREBASE ------------------ //
-
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDrsjCuMzZ09mp8Y-CE8O6I5Tt16_IVRzI",
-    authDomain: "phillyeats-b7ad1.firebaseapp.com",
-    databaseURL: "https://phillyeats-b7ad1.firebaseio.com",
-    projectId: "phillyeats-b7ad1",
-    storageBucket: "phillyeats-b7ad1.appspot.com",
-    messagingSenderId: "1089487018118"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
