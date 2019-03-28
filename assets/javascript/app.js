@@ -44,7 +44,7 @@ function getData(e) {
             var cuisineHolder = $("<p>").text(`Cuisine: ${restaurantCuisine}`);
             var addressHolder = $("<p>").text(`Address: ${restaurantAddress}`);
             var neighborhoodHolder = $("<p>").text(`Neighborhood: ${restaurantNeighborhood}`);
-            var menuHolder = $("<p>").text(`Menu: ${restaurantMenu}`);
+            var menuHolder = $("<p>").html(`<a href='${restaurantMenu}' target='_blank'>Menu</a>`);
 
             restaurantContainer.append(nameHolder);
             restaurantContainer.append(cuisineHolder);
