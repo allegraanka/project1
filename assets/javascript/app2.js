@@ -39,7 +39,7 @@ $(document).ready(function () {
     });
 
     // Rec On Click
-    $("#recipe-submit-btn").on("click", function () {
+    $("#btn-primary").on("click", function () {
 
         var userIngredient;
 
@@ -66,19 +66,20 @@ $(document).ready(function () {
 
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyB0UzYU_vyNF7nEbN2fZINuhAryTTxL9NU",
-        authDomain: "project-1-6a939.firebaseapp.com",
-        databaseURL: "https://project-1-6a939.firebaseio.com",
-        projectId: "project-1-6a939",
-        storageBucket: "project-1-6a939.appspot.com",
-        messagingSenderId: "686301834017"
+        apiKey: "AIzaSyC-m0mAh0tU9OlxcmLNaj9NeU-GIo6zYr4",
+        authDomain: "classproject1-6b207.firebaseapp.com",
+        databaseURL: "https://classproject1-6b207.firebaseio.com",
+        projectId: "classproject1-6b207",
+        storageBucket: "classproject1-6b207.appspot.com",
+        messagingSenderId: "733605793926"
     };
     firebase.initializeApp(config);
+
     //create variable to hold database
 
     var database = firebase.database();
 
-    $(".btn btn-light float-right").on("click", function (event) {
+    $(".btn-primary").on("click", function (event) {
         event.preventDefault();
 
         userIngredient = $(".user-search").val().trim();
@@ -93,62 +94,5 @@ $(document).ready(function () {
 
 
 
-    });
-});
-=======
-}
-
-// Rest On Click
-$("#resturaunt-submit-btn").on("click", function () {
-    getResturaunt();
-    console.log("rest-click")
-});
-
-// Rec On Click
-$("#recipe-submit-btn").on("click", function () {
-
-    var userIngredient;
-
-    // Prevent Default
-    event.preventDefault();
-
-    // HTML Elements
-    userIngredient = $("#ingredient-input").val().trim();
-
-    // AJAX URL
-    var cocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userIngredient;
-
-    // AJAX Call
-    $.ajax({
-        url: cocktailURL,
-        method: "GET"
-    }).then(function (response) {
-
-        // ---------- Add new DOM element on the fly for the results ------------- //
-
-        // Create a for loop to display 10 results
-        for (i = 0; i < 100; i++) {
-
-            // Href using the drinks ID to go to it's specific page
-            var cockRef = "https://www.thecocktaildb.com/drink/" + response.drinks[i].idDrink;
-
-            // Make list item
-            var newCocktail = $("<li>");
-
-            // Create an a tag
-            var cocktailResult = $("<a>");
-
-            // Assign text to a tag
-            cocktailResult.text(response.drinks[i].strDrink);
-
-            // Assign the href
-            cocktailResult.attr("href", cockRef);
-
-            // Append a tag as child of list item
-            newCocktail.append(cocktailResult);
-
-            // Append new cocktail to HTML
-            $("#cocktail-results").append(newCocktail);
-        }
     });
 });
