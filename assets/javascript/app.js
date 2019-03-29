@@ -14,6 +14,9 @@ var database = firebase.database();
 
 // -------------- RESTURUANT API -------------- //
 
+var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
+var userSearch;
+
 function getData(e) {
     e.preventDefault();
     userSearch = $("#userSearch").val().trim();
@@ -70,7 +73,6 @@ function getData(e) {
         console.log(`Menu: ${restaurantMenu}`);
     });
 }
-
 
 $("#submitBtn").on("click", getData);
 // -------------------------------------------------------------* end restaurant api ajax call
