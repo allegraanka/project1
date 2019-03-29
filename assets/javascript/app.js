@@ -1,16 +1,18 @@
-// -------------- PSUEDO CODE -------------- //
+// Firebase
+var config = {
+    apiKey: "AIzaSyB0UzYU_vyNF7nEbN2fZINuhAryTTxL9NU",
+    authDomain: "project-1-6a939.firebaseapp.com",
+    databaseURL: "https://project-1-6a939.firebaseio.com",
+    projectId: "project-1-6a939",
+    storageBucket: "project-1-6a939.appspot.com",
+    messagingSenderId: "686301834017"
+};
+firebase.initializeApp(config);
 
-// 1) Starting page - intro, instructions, login, start button
-// 2) User logs in, hits start
-// 3) Form pops up
-// 4) User fills out form
-// 5) Keywords from user input inform a query URL
-// 6) API cross-searches to find list of places
-// 7) Display list of places with their various criteria 
-// 8) When a user clicks a resturaunt take them to the place's website
+var database = firebase.database();
 
 
-// From Allegra's trials
+// -------------- RESTURUANT API -------------- //
 
 var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
 var userSearch;
@@ -36,7 +38,9 @@ $("#resturaunt-submit-btn").on("click", function () {
     console.log("rest-click")
 });
 
-// Rec On Click
+// ------------------ COCKTAIL API ------------------ //
+
+// Cocktail On Click
 $("#recipe-submit-btn").on("click", function () {
 
     var userIngredient;
@@ -79,6 +83,13 @@ $("#recipe-submit-btn").on("click", function () {
             // Assign the href
             cocktailResult.attr("href", cockRef);
 
+            // Make the href open in a new window
+            cocktailResult.attr("target", "_blank");
+
+            // Add a class to the cocktailResult
+            cocktailResult.addClass("cocktail-link");
+
+
             // Append a tag as child of list item
             newCocktail.append(cocktailResult);
 
@@ -86,19 +97,16 @@ $("#recipe-submit-btn").on("click", function () {
             $("#cocktail-results").append(newCocktail);
         }
     });
+    // On-Click to push to Database
+    $(document).on("click", ".cocktail-link", function () {
+        console.log($(this).text());
+
+        var cocktailsSearched = {
+
+            cocktails: $(this).text(),
+        }
+        database.ref().push(cocktailsSearched);
+
+    })
 });
 
-// ----------------- FIREBASE ------------------ //
-
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDrsjCuMzZ09mp8Y-CE8O6I5Tt16_IVRzI",
-    authDomain: "phillyeats-b7ad1.firebaseapp.com",
-    databaseURL: "https://phillyeats-b7ad1.firebaseio.com",
-    projectId: "phillyeats-b7ad1",
-    storageBucket: "phillyeats-b7ad1.appspot.com",
-    messagingSenderId: "1089487018118"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
