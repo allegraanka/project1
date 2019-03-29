@@ -1,71 +1,18 @@
-// -------------- PSUEDO CODE -------------- //
+// Firebase
+var config = {
+    apiKey: "AIzaSyB0UzYU_vyNF7nEbN2fZINuhAryTTxL9NU",
+    authDomain: "project-1-6a939.firebaseapp.com",
+    databaseURL: "https://project-1-6a939.firebaseio.com",
+    projectId: "project-1-6a939",
+    storageBucket: "project-1-6a939.appspot.com",
+    messagingSenderId: "686301834017"
+};
+firebase.initializeApp(config);
 
-// 1) Starting page - intro, instructions, login, start button
-// 2) User logs in, hits start
-// 3) Form pops up
-// 4) User fills out form
-// 5) Keywords from user input inform a query URL
-// 6) API cross-searches to find list of places
-// 7) Display list of places with their various criteria 
-// 8) When a user clicks a resturaunt take them to the place's website
-
-$(document).ready(function () {
+var database = firebase.database();
 
 
-    // Rest On Click
-    $("#resturaunt-submit-btn").on("click", function () {
-        getResturaunt();
-        console.log("rest-click")
-    });
-
-    // Rec On Click
-    $("#recipe-submit-btn").on("click", function () {
-
-        var userIngredient;
-
-        // Prevent Default
-        event.preventDefault();
-
-        // HTML Elements
-        userIngredient = $("#ingredient-input").val().trim();
-
-        // AJAX URL
-        var cocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userIngredient;
-
-        // AJAX Call
-        $.ajax({
-            url: cocktailURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response)
-        });
-        console.log("rec-click")
-    });
-
-    // ----------------- FIREBASE ------------------ //
-
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyB0UzYU_vyNF7nEbN2fZINuhAryTTxL9NU",
-        authDomain: "project-1-6a939.firebaseapp.com",
-        databaseURL: "https://project-1-6a939.firebaseio.com",
-        projectId: "project-1-6a939",
-        storageBucket: "project-1-6a939.appspot.com",
-        messagingSenderId: "686301834017"
-    };
-    firebase.initializeApp(config);
-    //create variable to hold database
-
-    var database = firebase.database();
-
-    $(".btn btn-light float-right").on("click", function (event) {
-        event.preventDefault();
-
-        userIngredient = $(".user-search").val().trim();
-
-        var cocktails = {
-
-            userIngredient: userIngredient,
+// -------------- RESTURUANT API -------------- //
 
 function getData(e) {
     e.preventDefault();
@@ -121,33 +68,27 @@ function getData(e) {
 
         var restaurantMenu = response.restaurants[0].restaurant.menu_url;
         console.log(`Menu: ${restaurantMenu}`);
-        }
-
-        database.ref().push(cocktails)
-
-
-
     });
-});
-=======
 }
+
 
 $("#submitBtn").on("click", getData);
 // -------------------------------------------------------------* end restaurant api ajax call
 
-// Rest On Click
-$("#resturaunt-submit-btn").on("click", function () {
-    getResturaunt();
-    console.log("rest-click")
-});
 
-// Rec On Click
+
+// ------------------ COCKTAIL API ------------------ //
+
+// Cocktail On Click
 $("#recipe-submit-btn").on("click", function () {
 
     var userIngredient;
 
     // Prevent Default
     event.preventDefault();
+
+    // CLEAR! THAT! DOM!
+    $("#cocktail-results").text("");
 
     // HTML Elements
     userIngredient = $("#ingredient-input").val().trim();
@@ -181,6 +122,13 @@ $("#recipe-submit-btn").on("click", function () {
             // Assign the href
             cocktailResult.attr("href", cockRef);
 
+            // Make the href open in a new window
+            cocktailResult.attr("target", "_blank");
+
+            // Add a class to the cocktailResult
+            cocktailResult.addClass("cocktail-link");
+
+
             // Append a tag as child of list item
             newCocktail.append(cocktailResult);
 
@@ -188,4 +136,16 @@ $("#recipe-submit-btn").on("click", function () {
             $("#cocktail-results").append(newCocktail);
         }
     });
+
+    // On-Click to push to Database
+    $(document).on("click", ".cocktail-link", function () {
+        console.log($(this).text());
+
+        var cocktailsSearched = {
+
+            cocktails: $(this).text(),
+        }
+        database.ref().push(cocktailsSearched);
+
+    })
 });
