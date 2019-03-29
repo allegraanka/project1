@@ -31,6 +31,57 @@ h3 {
 }
 
 /* Restaurant-API response list */
+
+.restaurant {
+    margin: 20px 0 20px 10px;
+    padding: 5px;
+}
+
+/* Ben's CSS */
+
+body {
+    background: url(https://files.slack.com/files-pri/TEE9QM0G2-FHFQEBLR4/food1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 110%;
+}
+
+.form-group {
+    background: aqua;
+    border: 1px solid #d3d3d3;
+    left: 50%;
+    padding: 2px 5px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, .37);
+    -moz-box-shadow: 0 4px 9px rgba(0, 0, 0, .37);
+    -webkit-box-shadow: 0 4px 9px rgba(0, 0, 0, .37);
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px
+}
+
+.form-group button {
+    background: rgb(52, 173, 236);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    padding: 10px;
+    width: 106px;
+    box-shadow: 0 0 2px #2692dd inset;
+    -moz-box-shadow: 0 0 2px #2692dd inset;
+    -webkit-box-shadow: 0 0 2px #2692dd inset;
+    border-radius: 9px;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+}
+
+.searchform button:hover {
+    opacity: .9;
+}
+
+/* Allegra's CSS */
+
 .restaurant {
     margin: 20px 0 20px 10px;
     padding: 5px;

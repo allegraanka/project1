@@ -68,7 +68,6 @@ function getData(e) {
 
         var restaurantMenu = response.restaurants[0].restaurant.menu_url;
         console.log(`Menu: ${restaurantMenu}`);
-        }
     });
 }
 
