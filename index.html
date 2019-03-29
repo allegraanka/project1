@@ -80,9 +80,9 @@
             <div class="col-6" id="restaurant-column">
                 <div class="form-group">
                     <label for="restaurant-input">Restaurant:</label>
-                    <input class="form-control" id="restaurant-input" class="user-search"
+                    <input class="form-control" id="userSearch" class="user-search"
                         placeholder="Example: Italian, Burgers, etc." type="text">
-                    <button class="btn btn-light float-right" id="resturaunt-submit-btn">Submit</button>
+                    <button class="btn btn-light float-right" id="submitBtn">Submit</button>
                 </div>
             </div>
         </div>
@@ -100,9 +100,9 @@
         <div class="card mb-4" id="resturaunt-results-card">
             <div class="card-header">Resturaunt results</div>
             <div class="card-body">
-                <ul id="cocktail-results">
-                    <li></li>
-                </ul>
+                <div id="result">
+                    <!-- restaurant api results display here -->
+                </div>
             </div>
         </div>
 
@@ -174,7 +174,7 @@
     </div>
 
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <!-- App Link -->
     <script src="assets/javascript/app.js"></script>
 </body>
