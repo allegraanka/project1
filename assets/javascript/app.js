@@ -80,7 +80,7 @@ $("#submitBtn").on("click", getData);
 // ------------------ COCKTAIL API ------------------ //
 
 // Cocktail On Click
-$("#recipe-submit-btn").on("click", function () {
+$("#cocktail-submit-btn").on("click", function () {
 
     var userIngredient;
 
