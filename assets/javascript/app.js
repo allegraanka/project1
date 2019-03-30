@@ -82,6 +82,19 @@ $("#submitBtn").on("click", getData);
 // Cocktail On Click
 $("#cocktail-submit-btn").on("click", function () {
 
+    // ---------- User Input Vailidation ------------- //
+    // Make a variable to capture input value
+    var cocktailField = $("#ingredient-input").val();
+
+    // If the field is blank
+    if (cocktailField === "") {
+
+        // Put up a modal
+        $("#user-input-modal").modal("show");;
+
+        return;
+    }
+
     var userIngredient;
 
     // Prevent Default
@@ -128,6 +141,8 @@ $("#cocktail-submit-btn").on("click", function () {
             // Add a class to the cocktailResult
             cocktailResult.addClass("cocktail-link");
 
+            // Add font awesome icon
+            // cocktailResult.addClass("fas fa-cocktail");
 
             // Append a tag as child of list item
             newCocktail.append(cocktailResult);
@@ -147,5 +162,32 @@ $("#cocktail-submit-btn").on("click", function () {
         }
         database.ref().push(cocktailsSearched);
 
+
     })
+
+
+
+})
+database.ref().limitToLast(10).on('child_added', function (snapShot) {
+    var cocktailData = snapShot.val().cocktails;
+
+    //var storeCocktails = cocktailData.cocktailsSearched;
+
+    console.log(cocktailData)
+
+
+
+    $("tbody").append(
+        "<tr>" +
+        "<td>" + cocktailData + "</td>" +
+        "</tr>"
+    );
 });
+
+
+// $("#cocktail-submit-btn").on("click", function () {
+
+
+// })
+
+
