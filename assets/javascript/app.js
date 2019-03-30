@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
+
 // -------------- RESTURUANT API -------------- //
 
 function getData(e) {
@@ -72,7 +73,24 @@ function getData(e) {
 }
 
 
-$("#submitBtn").on("click", getData);
+$("#submitBtn").on("click", function () {
+    getData;
+
+    // ---------- User Input Vailidation ------------- //
+
+    // Make a variable to capture input value
+    var restaurantField = $("#userSearch").val().trim();
+
+    // If the field is blank
+    if (restaurantField === "") {
+
+        // Put up a modal
+        $("#user-input-modal").modal("show");
+
+        // Exit so the results don't happen anyway (cause they will)
+        return;
+    }
+});
 // -------------------------------------------------------------* end restaurant api ajax call
 
 
@@ -81,6 +99,20 @@ $("#submitBtn").on("click", getData);
 
 // Cocktail On Click
 $("#cocktail-submit-btn").on("click", function () {
+
+    // ---------- User Input Vailidation ------------- //
+    // Make a variable to capture input value
+    var cocktailField = $("#ingredient-input").val().trim();
+
+    // If the field is blank
+    if (cocktailField === "") {
+
+        // Put up a modal
+        $("#user-input-modal").modal("show");
+
+        // Exit so the results don't happen anyway (cause they will)
+        return;
+    }
 
     var userIngredient;
 
@@ -113,6 +145,15 @@ $("#cocktail-submit-btn").on("click", function () {
             // Make list item
             var newCocktail = $("<li>");
 
+            // Create font awesome icon
+            var fontIcon = $("<i>");
+
+            // Make the icon an icon
+            fontIcon.addClass("fas fa-cocktail");
+
+            // Prepend the icon
+            newCocktail.prepend(fontIcon);
+
             // Create an a tag
             var cocktailResult = $("<a>");
 
@@ -127,7 +168,6 @@ $("#cocktail-submit-btn").on("click", function () {
 
             // Add a class to the cocktailResult
             cocktailResult.addClass("cocktail-link");
-
 
             // Append a tag as child of list item
             newCocktail.append(cocktailResult);
@@ -148,4 +188,24 @@ $("#cocktail-submit-btn").on("click", function () {
         database.ref().push(cocktailsSearched);
 
     })
+
+
+
+})
+database.ref().limitToLast(10).on('child_added', function (snapShot) {
+    var cocktailData = snapShot.val().cocktails;
+
+    //var storeCocktails = cocktailData.cocktailsSearched;
+
+    console.log(cocktailData)
+
+
+
+    $("tbody").append(
+        "<tr>" +
+        "<td>" + cocktailData + "</td>" +
+        "</tr>"
+    );
 });
+
+

@@ -16,8 +16,6 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- CSS Style -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -33,6 +31,26 @@
     <!-- Main Content -->
     <div class="container" id="content-container">
 
+        <!-- Modal -->
+        <div class="modal" tabindex="-1" role="dialog" id="user-input-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hey!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You didn't type anything! When you stare into the void the void stares back into you!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Title  -->
         <div class="row" id="title-row">
             <h1>Get-Lit-Adelphia!!!</h1>
@@ -42,7 +60,7 @@
         <!-- Instructions -->
         <div class="row" id="instructions-row">
             <h3 id="instructions-text">Hi there! Welcome to Get-Lit-Adelphia - the app dedicated to helping you get lit!
-                Tired of always having to choose between looking up cool new Philly resturaunts and searching
+                Tired of always having to choose between looking up cool new Philly restaurants and searching
                 cocktail recipies by one specific ingredient?!? No longer!!! Search a place, find drinks, the
                 possibilities are practically infinite! What are you waiting for, try it out! The world is your
                 oyster! Also, Philadelphia is the world!</h3>
@@ -57,7 +75,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Cocktail Name</th>
-                            <th scope="col">Resturaunt Name</th>
+                            <th scope="col">restaurant Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,7 +92,7 @@
                     <label for="cocktail-input">Cocktail:</label>
                     <input class="form-control" class="user-search" id="ingredient-input"
                         placeholder="Ingredient: Gin, Vodka, etc." type="text">
-                    <button class="btn btn-light float-right" id="cocktail-submit-btn">Submit</button>
+                    <button class="btn btn-light float-right" class="search-btn" id="cocktail-submit-btn">Submit</button>
                 </div>
             </div>
             <div class="col-6" id="restaurant-column">
@@ -97,15 +115,14 @@
             </div>
         </div>
 
-        <div class="card mb-4" id="resturaunt-results-card">
-            <div class="card-header">Resturaunt results</div>
+        <div class="card mb-4" id="restaurant-results-card">
+            <div class="card-header">Restaurant results</div>
             <div class="card-body">
                 <div id="result">
                     <!-- restaurant api results display here -->
                 </div>
             </div>
         </div>
-
 
 
 
@@ -160,8 +177,22 @@
         </div>
     </div>
 
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+
     <!-- App Link -->
     <script src="assets/javascript/app.js"></script>
 </body>
