@@ -86,3 +86,34 @@ body {
     margin: 20px 0 20px 10px;
     padding: 5px;
 }
+
+/* Nelly's CSS */
+
+#cocktail-results-card {
+    float: left;
+    width: 550px;
+    overflow-y: auto;
+    max-height: 400px;
+    margin-right: 50px;
+}
+
+#restaurant-results-card {
+    float: right;
+    width: 500px;
+    overflow-y: auto;
+    height: 400px;
+    margin-left: 50px;
+}
+
+.results {
+    background-color: aqua;
+}
+
+.card-header {
+    background-color: aqua;
+}
+
+/* Font Awesome Icon */
+.fas {
+    padding: 10px;
+}

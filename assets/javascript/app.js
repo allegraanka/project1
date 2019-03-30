@@ -145,6 +145,15 @@ $("#cocktail-submit-btn").on("click", function () {
             // Make list item
             var newCocktail = $("<li>");
 
+            // Create font awesome icon
+            var fontIcon = $("<i>");
+
+            // Make the icon an icon
+            fontIcon.addClass("fas fa-cocktail");
+
+            // Prepend the icon
+            newCocktail.prepend(fontIcon);
+
             // Create an a tag
             var cocktailResult = $("<a>");
 
@@ -159,9 +168,6 @@ $("#cocktail-submit-btn").on("click", function () {
 
             // Add a class to the cocktailResult
             cocktailResult.addClass("cocktail-link");
-
-            // Add font awesome icon
-            // cocktailResult.addClass("fas fa-cocktail");
 
             // Append a tag as child of list item
             newCocktail.append(cocktailResult);
@@ -180,7 +186,6 @@ $("#cocktail-submit-btn").on("click", function () {
             cocktails: $(this).text(),
         }
         database.ref().push(cocktailsSearched);
-
 
     })
 
