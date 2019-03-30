@@ -40,11 +40,10 @@ h3 {
 /* Ben's CSS */
 
 body {
-    background: url(https://files.slack.com/files-pri/TEE9QM0G2-FHFQEBLR4/food1.jpg);
+    background: url("../images/5.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 110%;
 }
 
 .form-group {
@@ -117,3 +116,9 @@ body {
 .fas {
     padding: 10px;
 }
+
+/* Footer */
+#copyright-text {
+    margin-left: 250px;
+    margin-top: 20px;
+  }
