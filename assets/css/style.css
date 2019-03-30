@@ -16,7 +16,7 @@ body {
 
 /* Columns */
 
-#cocktail-column, #resturaunt-column {
+#cocktail-column, #restaurant-column {
     margin-bottom: 15px;
 }
 
@@ -97,7 +97,6 @@ body {
 }
 
 #restaurant-results-card {
-    float: right;
     width: 500px;
     overflow-y: auto;
     height: 400px;
