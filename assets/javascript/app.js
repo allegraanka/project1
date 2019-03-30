@@ -79,10 +79,10 @@ $("#submitBtn").on("click", function () {
     // ---------- User Input Vailidation ------------- //
 
     // Make a variable to capture input value
-    var resturauntField = $("#userSearch").val().trim();
+    var restaurantField = $("#userSearch").val().trim();
 
     // If the field is blank
-    if (resturauntField === "") {
+    if (restaurantField === "") {
 
         // Put up a modal
         $("#user-input-modal").modal("show");
