@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
+
 // -------------- RESTURUANT API -------------- //
 
 function getData(e) {
@@ -72,7 +73,24 @@ function getData(e) {
 }
 
 
-$("#submitBtn").on("click", getData);
+$("#submitBtn").on("click", function () {
+    getData;
+
+    // ---------- User Input Vailidation ------------- //
+
+    // Make a variable to capture input value
+    var resturauntField = $("#userSearch").val().trim();
+
+    // If the field is blank
+    if (resturauntField === "") {
+
+        // Put up a modal
+        $("#user-input-modal").modal("show");
+
+        // Exit so the results don't happen anyway (cause they will)
+        return;
+    }
+});
 // -------------------------------------------------------------* end restaurant api ajax call
 
 
@@ -84,14 +102,15 @@ $("#cocktail-submit-btn").on("click", function () {
 
     // ---------- User Input Vailidation ------------- //
     // Make a variable to capture input value
-    var cocktailField = $("#ingredient-input").val();
+    var cocktailField = $("#ingredient-input").val().trim();
 
     // If the field is blank
     if (cocktailField === "") {
 
         // Put up a modal
-        $("#user-input-modal").modal("show");;
+        $("#user-input-modal").modal("show");
 
+        // Exit so the results don't happen anyway (cause they will)
         return;
     }
 
@@ -183,11 +202,5 @@ database.ref().limitToLast(10).on('child_added', function (snapShot) {
         "</tr>"
     );
 });
-
-
-// $("#cocktail-submit-btn").on("click", function () {
-
-
-// })
 
 
