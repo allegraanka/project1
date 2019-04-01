@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GetLitGoOut</title>
+    <title>Finding Philly!</title>
 
     <!-- CSS Reset -->
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -36,13 +36,14 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Hey!</h5>
+                        <h5 class="modal-title">Halt!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>You didn't type anything! When you stare into the void the void stares back into you!</p>
+                        <p>You haven't searched anything - how will the answers find you when you speak only silence?!?
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -53,14 +54,15 @@
 
         <!-- Title  -->
         <div class="row" id="title-row">
-            <h1>Get-Lit-Adelphia!!!</h1>
-            <h2>Philly's One-Stop-Shop for Searching Drinks and Finding Eats</h2>
+            <h1 id="title-text">Finding Philly</h1>
+            <h2 id="tagline-text">Philly's One-Stop-Shop for Searching Drinks and Finding Eats</h2>
         </div>
 
         <!-- Instructions -->
         <div class="row" id="instructions-row">
-            <h3 id="instructions-text">Hi there! Welcome to Get-Lit-Adelphia - the app dedicated to helping you get lit!
-                Tired of always having to choose between looking up cool new Philly restaurants and searching
+            <h3 id="instructions-text">Hi there! Welcome to Finding Philly - the app dedicated to helping you make your
+                drink and your night!
+                Are you tired of always having to choose between looking up cool new Philly restaurants and searching
                 cocktail recipies by one specific ingredient?!? No longer!!! Search a place, find drinks, the
                 possibilities are practically infinite! What are you waiting for, try it out! The world is your
                 oyster! Also, Philadelphia is the world!</h3>
@@ -75,7 +77,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Cocktail Name</th>
-                            <th scope="col">restaurant Name</th>
+                            <th scope="col">Restaurant Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,7 +94,8 @@
                     <label for="cocktail-input">Cocktail:</label>
                     <input class="form-control" class="user-search" id="ingredient-input"
                         placeholder="Ingredient: Gin, Vodka, etc." type="text">
-                    <button class="btn btn-light float-right" class="search-btn" id="cocktail-submit-btn">Submit</button>
+                    <button class="btn btn-light float-right" class="search-btn"
+                        id="cocktail-submit-btn">Submit</button>
                 </div>
             </div>
             <div class="col-6" id="restaurant-column">
@@ -106,23 +109,29 @@
         </div>
 
         <!---------------------------------- RESULTS SECTION ----------------------------------->
-        <div class="card mb-4" id="cocktail-results-card">
-            <div class="card-header">Cocktail results</div>
-            <div class="card-body">
-                <ul id="cocktail-results">
-                    <li></li>
-                </ul>
+        <div class="row" id="results-row">
+            <div class="col-6" id="cocktail-results-column">
+                <div class="card mb-4" id="cocktail-results-card">
+                    <div class="card-header">Cocktail results</div>
+                    <div class="card-body">
+                        <ul id="cocktail-results">
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="card mb-4" id="restaurant-results-card">
-            <div class="card-header">Restaurant results</div>
-            <div class="card-body">
-                <div id="result">
-                    <!-- restaurant api results display here -->
+            <div class="col-6" id="restaurant-results-column">
+                <div class="card mb-4" id="restaurant-results-card">
+                    <div class="card-header">Restaurant results</div>
+                    <div class="card-body">
+                        <div id="result">
+                            <!-- restaurant api results display here -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
 
 
 
@@ -158,7 +167,7 @@
                     <!-- Copyright Text -->
                     <div class="row" id="copyright-row">
                         <p id="copyright-text">
-                            Copyright © The Best Friends Gang, 2019 - "PhillyEats Background
+                            Copyright © The Best Friends Gang, 2019 - "Finding Philly Background
                             Music"
                             is
                             an

@@ -179,7 +179,7 @@ $("#cocktail-submit-btn").on("click", function () {
 
     // On-Click to push to Database
     $(document).on("click", ".cocktail-link", function () {
-        console.log($(this).text());
+        // console.log($(this).text());
 
         var cocktailsSearched = {
 
@@ -197,7 +197,7 @@ database.ref().limitToLast(10).on('child_added', function (snapShot) {
 
     //var storeCocktails = cocktailData.cocktailsSearched;
 
-    console.log(cocktailData)
+    // console.log(cocktailData)
 
 
 
