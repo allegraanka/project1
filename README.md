@@ -1,15 +1,17 @@
 # project1
 
-Welcome to GetLitGoOut - Philadelphia's only food app that we've created!
+Welcome to Finding Philly - Philadelphia's only food app that we've created!
 
-GetLitGoOut is for all of our philly foodies (colloquially reffered to as 'phoodillies') who either want to search recipies or resturaunt. If it starts with an "re" and concerns food, we got it! User's will answer survey questions to help tailor their solutions so that we can find the right results just for you!
+Finding Philly is for all of our philly foodies (colloquially reffered to as 'phoodillies') who either want to search cocktails by ingredient or find a cool place to eat. This city has a ton of great places, and liquor laws are weird so get ready with a cocktail just for you!
 
-The goal of this app is to help people find recipies or places to eat in our beautiful city of Philadelphious.
+The goal of this app is to help people find cocktail recipies or places to eat in our beautiful city of Philadelphious.
 
-To start just login or create a username and you can start filling out the survey questions or just jump right into a search!
+Finding Philly contains materials related to alcohol and as such is intended only for those of legal drinking age. 
 
-If you need any assistance or have any questions please fill out a comment on our contact page and we'll pretend we know how to respond!
+To start just type in either an ingredient or a restaurant search term and watch as the results pour in - pun intended!
 
-Happy eatings!
+If you need any assistance or have any questions please fill out a comment on our contact page that doesn't exist and we'll pretend to get back to you!
 
-![Ready_to_Eat_Gif](assets/images/ready_to_eat.gif) 
+Happy findings!
+
+![Cheers_Gif](assets/images/cheers.gif) 
