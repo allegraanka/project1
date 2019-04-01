@@ -11,7 +11,6 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-
 // -------------- RESTURUANT API -------------- //
 
 var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
@@ -47,6 +46,7 @@ function getData(e) {
             var addressHolder = $("<p>").text(`Address: ${restaurantAddress}`);
             var neighborhoodHolder = $("<p>").text(`Neighborhood: ${restaurantNeighborhood}`);
             var menuHolder = $("<p>").html(`<a href='${restaurantMenu}' target='_blank'>Menu</a>`);
+            menuHolder.addClass("menu-link");
 
             restaurantContainer.append(nameHolder);
             restaurantContainer.append(cuisineHolder);
@@ -56,33 +56,69 @@ function getData(e) {
 
             $("#result").prepend(restaurantContainer);
         });
-
-        var restaurantName = restaurant.name;
-        console.log(`Restaurant: ${restaurantName}`);
-
-        var restaurantCuisine = response.restaurants[0].restaurant.cuisines;
-        console.log(`Cuisine: ${restaurantCuisine}`);
-
-        var restaurantAddress = response.restaurants[0].restaurant.location.address;
-        console.log(`Address: ${restaurantAddress}`);
-
-        var restaurantNeighborhood = response.restaurants[0].restaurant.location.locality;
-        console.log(`Neighborhood: ${restaurantNeighborhood}`);
-
-        var restaurantMenu = response.restaurants[0].restaurant.menu_url;
-        console.log(`Menu: ${restaurantMenu}`);
     });
 }
 
-$("#submitBtn").on("click", getData);
-// -------------------------------------------------------------* end restaurant api ajax call
+$("#submitBtn").on("click", function () {
+    getData;
+
+    // ---------- User Input Vailidation ------------- //
+
+    // Make a variable to capture input value
+    var restaurantField = $("#userSearch").val().trim();
+
+    // If the field is blank
+    if (restaurantField === "") {
+
+        // Put up a modal
+        $("#user-input-modal").modal("show");
+
+        // Exit so the results don't happen anyway (cause they will)
+        return;
+    }
+});
+
+// Push restaurant to database if menu clicked
+$(document).on("click", ".menu-link", function () {
+    console.log($(this).val());
+    var restaurantClicked = {
+        restaurant: $(this).val()
+    }
+    database.ref().push(restaurantClicked);
+})
+
+// Display last 10 restaurants whose menus were clicked
+database
+  .ref()
+  .limitToLast(10)
+  .on("child_added", function(snapShot) {
+    var restaurantData = snapShot.val().restaurant;
+    console.log(restaurantData);
+    $("tbody").append("<tr>" + "<td>" + restaurantData + "</td>" + "</tr>");
+  });
+
+// -------------------------------------------------------------* end restaurant api ajax call & push to firebase
 
 
 
 // ------------------ COCKTAIL API ------------------ //
 
 // Cocktail On Click
-$("#recipe-submit-btn").on("click", function () {
+$("#cocktail-submit-btn").on("click", function () {
+
+    // ---------- User Input Vailidation ------------- //
+    // Make a variable to capture input value
+    var cocktailField = $("#ingredient-input").val().trim();
+
+    // If the field is blank
+    if (cocktailField === "") {
+
+        // Put up a modal
+        $("#user-input-modal").modal("show");
+
+        // Exit so the results don't happen anyway (cause they will)
+        return;
+    }
 
     var userIngredient;
 
@@ -115,6 +151,15 @@ $("#recipe-submit-btn").on("click", function () {
             // Make list item
             var newCocktail = $("<li>");
 
+            // Create font awesome icon
+            var fontIcon = $("<i>");
+
+            // Make the icon an icon
+            fontIcon.addClass("fas fa-cocktail");
+
+            // Prepend the icon
+            newCocktail.prepend(fontIcon);
+
             // Create an a tag
             var cocktailResult = $("<a>");
 
@@ -129,7 +174,6 @@ $("#recipe-submit-btn").on("click", function () {
 
             // Add a class to the cocktailResult
             cocktailResult.addClass("cocktail-link");
-
 
             // Append a tag as child of list item
             newCocktail.append(cocktailResult);
@@ -150,4 +194,24 @@ $("#recipe-submit-btn").on("click", function () {
         database.ref().push(cocktailsSearched);
 
     })
+
+
+
+})
+database.ref().limitToLast(10).on('child_added', function (snapShot) {
+    var cocktailData = snapShot.val().cocktails;
+
+    //var storeCocktails = cocktailData.cocktailsSearched;
+
+    console.log(cocktailData)
+
+
+
+    $("tbody").append(
+        "<tr>" +
+        "<td>" + cocktailData + "</td>" +
+        "</tr>"
+    );
 });
+
+
