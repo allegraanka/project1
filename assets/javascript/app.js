@@ -149,7 +149,7 @@ $("#cocktail-submit-btn").on("click", function () {
             var fontIcon = $("<i>");
 
             // Make the icon an icon
-            fontIcon.addClass("fas fa-cocktail");
+            fontIcon.addClass("fas fa-cocktail fa-lg");
 
             // Prepend the icon
             newCocktail.prepend(fontIcon);
@@ -192,14 +192,10 @@ $("#cocktail-submit-btn").on("click", function () {
 
 
 })
+
+// Limits results on the board to most recent 10
 database.ref().limitToLast(10).on('child_added', function (snapShot) {
     var cocktailData = snapShot.val().cocktails;
-
-    //var storeCocktails = cocktailData.cocktailsSearched;
-
-    // console.log(cocktailData)
-
-
 
     $("tbody").append(
         "<tr>" +

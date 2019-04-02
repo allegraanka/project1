@@ -64,7 +64,7 @@
                 drink and your night!
                 Are you tired of always having to choose between looking up cool new Philly restaurants and searching
                 cocktail recipies by one specific ingredient?!? No longer!!! Search a place, find drinks, the
-                possibilities are practically infinite! What are you waiting for, try it out! The world is your
+                possibilities are practically infinite! Whether you're staying in, going out or both - the world is your
                 oyster! Also, Philadelphia is the world!</h3>
         </div>
 
@@ -76,8 +76,8 @@
                 <table class="table table-sm table-hover" id="search-history-table">
                     <thead>
                         <tr>
-                            <th scope="col">Cocktail Name</th>
-                            <th scope="col">Restaurant Name</th>
+                            <th scope="col" id="cocktail-searchboard">Cocktail Name</th>
+                            <th scope="col" id="restaurant-searchboard">Restaurant Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,33 +133,6 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Footer -->
         <div class="row">
             <footer class="footer">
@@ -172,19 +145,23 @@
                             is
                             an
                             Original Composition
-                            by "Las Personas en la Clase"
+                            by DJ Watcha
                         </p>
                     </div>
-                    <!-- Music if we want it
+                    <!-- Music -->
                     <div class="row" id="audio-row">
                         <audio id="bg-music" controls>
-                            <source src="" type="audio/mpeg">
+                            <source src="assets/Finding Philly Background Music.mp3" type="audio/mpeg">
                         </audio>
-                    </div> -->
+                    </div>
                 </small>
             </footer>
         </div>
     </div>
+
+
+
+    <!---------------- SCRIPT LINKS ---------------->
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
