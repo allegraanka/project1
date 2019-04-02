@@ -11,9 +11,10 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-
-
 // -------------- RESTURUANT API -------------- //
+
+var baseURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city";
+var userSearch;
 
 function getData(e) {
     e.preventDefault();
@@ -26,11 +27,13 @@ function getData(e) {
             "user-key": "a78c76989a0d84745c0c782d502cd107"
         }
     }).then(function (response) {
+        console.log(response);
 
         var restaurants = response.restaurants;
 
         restaurants.forEach(function (restaurant) {
             console.log(restaurant);
+            
             var restaurantContainer = $("<div>");
             restaurantContainer.addClass("restaurant");
 
@@ -44,37 +47,31 @@ function getData(e) {
             var cuisineHolder = $("<p>").text(`Cuisine: ${restaurantCuisine}`);
             var addressHolder = $("<p>").text(`Address: ${restaurantAddress}`);
             var neighborhoodHolder = $("<p>").text(`Neighborhood: ${restaurantNeighborhood}`);
-            var menuHolder = $("<p>").html(`<a href='${restaurantMenu}' target='_blank'>Menu</a>`);
+            var menuHolder = $("<p>").html(`<a href='${restaurantMenu}' target='_blank' class='menu-link'>Menu</a>`);
+
+            var fontIcon = $("<i>");
+
+            // Make the icon an icon
+            fontIcon.addClass("fas fa-hamburger");
+
+            // Prepend the icon
+            restaurantContainer.prepend(fontIcon);
 
             restaurantContainer.append(nameHolder);
             restaurantContainer.append(cuisineHolder);
             restaurantContainer.append(addressHolder);
             restaurantContainer.append(neighborhoodHolder);
             restaurantContainer.append(menuHolder);
+            console.log("restaurant results:" + restaurantContainer);
 
-            $("#result").prepend(restaurantContainer);
+            $("#restaurant-results").prepend(restaurantContainer);
         });
-
-        var restaurantName = restaurant.name;
-        console.log(`Restaurant: ${restaurantName}`);
-
-        var restaurantCuisine = response.restaurants[0].restaurant.cuisines;
-        console.log(`Cuisine: ${restaurantCuisine}`);
-
-        var restaurantAddress = response.restaurants[0].restaurant.location.address;
-        console.log(`Address: ${restaurantAddress}`);
-
-        var restaurantNeighborhood = response.restaurants[0].restaurant.location.locality;
-        console.log(`Neighborhood: ${restaurantNeighborhood}`);
-
-        var restaurantMenu = response.restaurants[0].restaurant.menu_url;
-        console.log(`Menu: ${restaurantMenu}`);
     });
 }
 
-
-$("#submitBtn").on("click", function () {
-    getData;
+$("#submitBtn").on("click", function (e) {
+    console.log("click is working?");
+    getData(e);
 
     // ---------- User Input Vailidation ------------- //
 
@@ -91,7 +88,8 @@ $("#submitBtn").on("click", function () {
         return;
     }
 });
-// -------------------------------------------------------------* end restaurant api ajax call
+
+// -------------------------------------------------------------* end restaurant api ajax call & push to firebase
 
 
 
@@ -179,29 +177,47 @@ $("#cocktail-submit-btn").on("click", function () {
 
     // On-Click to push to Database
     $(document).on("click", ".cocktail-link", function () {
-        // console.log($(this).text());
+        console.log($(this).text());
 
         var cocktailsSearched = {
-
-            cocktails: $(this).text(),
+            cocktails: $(this).text()
         }
         database.ref().push(cocktailsSearched);
-
+        });
     })
+    database.ref().limitToLast(10).on('child_added', function (snapShot) {
+        var cocktailData = snapShot.val().cocktails;
 
+        //var storeCocktails = cocktailData.cocktailsSearched;
 
+        // console.log(cocktailData)
 
-})
+        $("tbody").append(
+            "<tr>" +
+            "<td>" + cocktailData + "</td>" +
+            "</tr>"
+        );
+    });
 
-// Limits results on the board to most recent 10
-database.ref().limitToLast(10).on('child_added', function (snapShot) {
-    var cocktailData = snapShot.val().cocktails;
+$(document).on("click", ".menu-link", function () {
+    console.log($(this).val());
+
+    var restaurantsClicked = {
+        restaurants: $(this).val()
+    }
+    database.ref().push(restaurantsClicked);
+});
+
+database.ref().limitToLast(10).on('child_added', function (snapshot) {
+    var restaurantData = snapshot.val().restaurants;
+
+    //var storeCocktails = cocktailData.cocktailsSearched;
+
+    // console.log(cocktailData)
 
     $("tbody").append(
         "<tr>" +
-        "<td>" + cocktailData + "</td>" +
+        "<td>" + restaurantData + "</td>" +
         "</tr>"
     );
 });
-
-
