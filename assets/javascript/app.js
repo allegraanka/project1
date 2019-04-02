@@ -147,7 +147,7 @@ $("#cocktail-submit-btn").on("click", function () {
             var fontIcon = $("<i>");
 
             // Make the icon an icon
-            fontIcon.addClass("fas fa-cocktail");
+            fontIcon.addClass("fas fa-cocktail fa-lg");
 
             // Prepend the icon
             newCocktail.prepend(fontIcon);
