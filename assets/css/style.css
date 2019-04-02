@@ -80,6 +80,14 @@ h3 {
     max-height: 400px;
 }
 
+.results {
+    background-color: #115aac;
+}
+
+.card-body {
+    background-color: #d9c786;
+}
+
 /* ------------- RESTAURAUNT-API RESPONSE LIST ---------------- */
 
 .restaurant {
@@ -88,6 +96,10 @@ h3 {
 }
 
 /* ------------- FORM GROUP ----------- */
+
+.form-control {
+    background: #e9ddaf;
+}
 
 .form-group {
     text-align: center;
@@ -127,14 +139,6 @@ h3 {
     opacity: .9;
 }
 
-/* Nelly's CSS */
-
-.results {
-    background-color: #115aac;
-}
-
-
-
 /* Font Awesome Icon */
 
 .fas {
@@ -148,18 +152,6 @@ h3 {
 /* Footer */
 
 #copyright-text {
-    margin-left: 250px;
     margin-top: 20px;
-}
-
-/* Cards */
-
-.card-body {
-    background-color: #d9c786;
-}
-
-/* Forms */
-
-.form-control {
-    background: #e9ddaf;
+    color: #2784c8;
 }
