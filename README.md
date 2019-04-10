@@ -1,4 +1,4 @@
-# project1
+# Finding Philly
 
 Welcome to Finding Philly - Philadelphia's only food app that we've created!
 
