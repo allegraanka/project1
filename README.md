@@ -1,4 +1,4 @@
-# project1
+# Finding Philly
 
 Welcome to Finding Philly - Philadelphia's only food app that we've created!
 
@@ -13,5 +13,7 @@ To start just type in either an ingredient or a restaurant search term and watch
 If you need any assistance or have any questions please fill out a comment on our contact page that doesn't exist and we'll pretend to get back to you!
 
 Happy findings!
+
+http://allegraanka.com/findingphilly/
 
 ![Cheers_Gif](assets/images/cheers.gif) 
