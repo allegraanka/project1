@@ -1,4 +1,4 @@
-# project1
+# Finding Philly
 
 Welcome to Finding Philly - Philadelphia's only food app that we've created!
 
@@ -14,6 +14,6 @@ If you need any assistance or have any questions please fill out a comment on ou
 
 Happy findings!
 
-http://allegraanka.com/project1/
+http://allegraanka.com/findingphilly/
 
 ![Cheers_Gif](assets/images/cheers.gif) 
